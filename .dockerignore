@@ -1,0 +1,8 @@
+test
+lcov.info
+node_modules
+package.json
+Dockerfile
+.dockerignore
+.gitignore
+.git
