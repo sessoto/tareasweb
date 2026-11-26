@@ -13,11 +13,12 @@ function crearItem(doc, tarea) {
 async function cargarTareas(doc, ubicacion, pedir) {
   const estado = doc.getElementById('estado');
   const lista = doc.getElementById('lista');
+  const api = urlApi(ubicacion);
   try {
-    const respuesta = await pedir(`${urlApi(ubicacion)}/tareas`);
+    const respuesta = await pedir(`${api}/tareas`);
     const tareas = await respuesta.json();
     tareas.forEach((tarea) => lista.appendChild(crearItem(doc, tarea)));
-    estado.textContent = `${tareas.length} tareas`;
+    estado.textContent = `${tareas.length} tareas · API ${api}`;
   } catch {
     estado.textContent = 'No se pudo conectar con la API';
   }

@@ -32,7 +32,7 @@ test('muestra las tareas que entrega la API', async () => {
   const pedir = async () => ({ json: async () => [{ titulo: 'A', hecha: false }, { titulo: 'B', hecha: true }] });
   await cargarTareas(doc, ubicacion, pedir);
   assert.strictEqual(doc.elementos.lista.hijos.length, 2);
-  assert.strictEqual(doc.elementos.estado.textContent, '2 tareas');
+  assert.strictEqual(doc.elementos.estado.textContent, '2 tareas · API http://localhost:8091');
 });
 
 test('avisa si la API no responde', async () => {
